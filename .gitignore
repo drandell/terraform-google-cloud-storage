@@ -27,7 +27,6 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
-examples/basic_buckets/terraform.tfvars
 examples/basic_buckets/backend.tf
 examples/basic_buckets/key.json
 examples/basic_buckets/.terraform.lock.hcl
