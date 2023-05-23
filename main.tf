@@ -27,12 +27,12 @@ resource "google_storage_bucket" "this" {
   uniform_bucket_level_access = each.value["uniform_bucket_level_access"]
   labels                      = each.value["labels"]
 
-  autoclass {
-    enabled = each.value["enable_autoclass"]
-  }
+  dynamic "autoclass" {
+    for_each = each.value["enable_autoclass"] ? [true] : []
 
-  versioning {
-    enabled = each.value["enable_versioning"]
+    content {
+      enabled = autoclass.value[0]
+    }    
   }
 
   dynamic "cors" {
@@ -103,6 +103,13 @@ resource "google_storage_bucket" "this" {
     content {
       is_locked        = retention_policy.value["is_locked"]
       retention_period = retention_policy.value["retention_period"]
+    }
+  }
+
+  dynamic "versioning" {
+    for_each = each.value["enable_versioning"] ? [true] : []
+    content {
+      enabled = versioning.value[0]
     }
   }
 
