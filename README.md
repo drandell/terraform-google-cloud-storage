@@ -22,7 +22,7 @@ If you require a GCS module that supports a terraform version < 1.3.0 than i sug
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0, < 2.0.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 4.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.0.0, < 6.0.0 |
 <!-- END_TF_DOCS -->
 
 ### Service Account
