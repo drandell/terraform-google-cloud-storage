@@ -22,6 +22,7 @@ resource "google_storage_bucket" "this" {
   default_event_based_hold    = each.value["default_event_based_hold"]
   force_destroy               = each.value["force_destroy"]
   public_access_prevention    = each.value["public_access_prevention"]
+  enable_object_retention     = each.value["enable_object_retention"]
   requester_pays              = each.value["requester_pays"]
   storage_class               = upper(each.value["storage_class"])
   uniform_bucket_level_access = each.value["uniform_bucket_level_access"]
@@ -31,8 +32,9 @@ resource "google_storage_bucket" "this" {
     for_each = each.value["enable_autoclass"] ? [true] : []
 
     content {
-      enabled = autoclass.value[0]
-    }    
+      enabled                = autoclass.value[0]
+      terminal_storage_class = each.value["terminal_storage_class"] != null ? upper(each.value["terminal_storage_class"]) : null
+    }
   }
 
   dynamic "cors" {
