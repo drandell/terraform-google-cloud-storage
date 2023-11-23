@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.3] - 2023-11-23
 ### Added
 - `enable_object_retention` attribute supported
-- `terminal_storage_class` attribute supported via `autoclass_terminal_storage_class`
+- `terminal_storage_class` attribute supported
 
 ### Changed
 - Minimum provider version to 5.5.0 to support object retention
