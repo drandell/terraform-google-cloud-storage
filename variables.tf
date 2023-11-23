@@ -9,9 +9,11 @@ variable "buckets" {
       method          = optional(list(string)),
       origin          = optional(list(string)),
       response_header = optional(list(string))
-    })), [])
-    default_event_based_hold        = optional(bool, false)
+    })), []),
+    default_event_based_hold        = optional(bool, false),
     enable_autoclass                = optional(bool, false),
+    terminal_storage_class          = optional(string, null)
+    enable_object_retention         = optional(bool, false),
     enable_versioning               = optional(bool, false),
     force_destroy                   = optional(bool, false),
     custom_placement_data_locations = optional(set(string), []),
